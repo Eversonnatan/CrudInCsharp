@@ -23,6 +23,48 @@ namespace AcessoBD
             Application.Exit();
         }
 
+        #region Métdo modifica (para DeleTe , Update e Insert)
+        private void modifica(String sql) 
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = Conexao.abreConexao();
+            try
+            {
+                //perguntar ao usuario se ele deseja executar essa ação
+                if (MessageBox.Show("Deseja executar essa ação?" ,"Atenção",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int result = cmd.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Ação realizada com Exito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao realizar essa ação!");
+                    }
+                    cmd.Dispose();
+
+                }
+                
+                
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Conexao.fechaConexao();
+            }
+
+        }
+        #endregion
+
+
+        #region botão de Pesquisa
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
@@ -53,6 +95,35 @@ namespace AcessoBD
             {
                 Conexao.fechaConexao();
             }
+        }
+        #endregion
+
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            string apaga = String.Format("" +
+                "DELETE FROM estados WHERE codigo = {0}",
+                txtCodigo.Text);
+            modifica(apaga);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            String terror = "INSERT INTO estados VALUES('" +
+                txtCodigo.Text+ "','" +txtNome.Text +
+                "','" + txtUF.Text + "')";
+
+            string novo = string.Format(
+                "INSERT INTO estados VALUES('{0}' ,'{1}','{2}'",
+                txtCodigo.Text, txtNome.Text, txtUF.Text);
+            modifica(novo);
+        }
+
+        private void btAtualizar_Click(object sender, EventArgs e)
+        {
+            string atualiza = string.Format(
+                "UPDATE estados SET nome='{0}, uf={1}' WHERE codigo = '{2}'",
+                txtNome.Text, txtUF.Text, txtCodigo.Text);
+            modifica(atualiza);
         }
     }
 }
