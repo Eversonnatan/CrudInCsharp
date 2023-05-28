@@ -121,7 +121,7 @@ namespace AcessoBD
         private void btAtualizar_Click(object sender, EventArgs e)
         {
             string atualiza = string.Format(
-                "UPDATE estados SET nome='{0}, uf={1}' WHERE codigo = '{2}'",
+                "UPDATE estados SET nome='{0}', uf='{1}' WHERE codigo = {2}",
                 txtNome.Text, txtUF.Text, txtCodigo.Text);
             modifica(atualiza);
         }

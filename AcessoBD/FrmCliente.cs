@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace AcessoBD
 {
     public partial class FrmCliente : Form
@@ -22,7 +23,45 @@ namespace AcessoBD
         {
             Application.Exit();
         }
+        #region Métdo modifica (para DELETE , UPDATE e INSERT)
+        private void modifica(string sql)
+        {
+            MySqlCommand dmc = new MySqlCommand();
+            dmc.CommandText = sql;
+            dmc.CommandType = CommandType.Text;
+            dmc.Connection = Conexao.abreConexao();
+            try
+            {
+                //verifica se o usuario deseja executar a ação
+                if (MessageBox.Show("Deseja executar esta ação", "Atenção",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)==
+                    DialogResult.Yes)
+                {
+                    int result = dmc.ExecuteNonQuery();
+                    if (result > 0)
+                        MessageBox.Show("Ação realizada com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao realizar esta ação!");
 
+                }
+                dmc.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+            finally
+            {
+                Conexao.fechaConexao();
+            }
+        }
+
+        #endregion
+
+        #region botão de Pesquisa
         private void BtnPesquisaCli_Click(object sender, EventArgs e)
         {
             MySqlCommand dmc = new MySqlCommand();
@@ -52,6 +91,39 @@ namespace AcessoBD
             finally
             {
                 Conexao.fechaConexao();
+            }
+        }
+        #endregion
+
+        private void btnapagarCli_Click(object sender, EventArgs e)
+        {
+            string apaga = string.Format("DELETE FROM clientes  WHERE codigo = {0}",
+                txtcodigoCli.Text);
+            modifica(apaga);
+        }
+
+        private void btnNovocli_Click(object sender, EventArgs e)
+        {
+            string novo = string.Format(
+               "INSERT INTO clientes VALUES({0} ,'{1}','{2}'",
+               txtcodigoCli.Text, txtnomeCli.Text, txtSexo.Text);
+            modifica(novo);
+        }
+
+        private void btnAtualizaCli_Click(object sender, EventArgs e)
+        {
+            String atualiza = String.Format(
+                "UPDATE clientes SET nome = '{0}',sexo'{1}' WHERE codigo = {2}", 
+                txtnomeCli.Text, txtSexo.Text, txtcodigoCli.Text);
+            modifica(atualiza);
+        }
+
+        private void rbtSexoM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtSexoM.Checked)
+            {
+                txtSexo.Text = string.Format("M: '{0}.", txtSexo);
+
             }
         }
     }
