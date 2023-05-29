@@ -108,14 +108,18 @@ namespace AcessoBD
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            String terror = "INSERT INTO estados VALUES('" +
-                txtCodigo.Text+ "','" +txtNome.Text +
-                "','" + txtUF.Text + "')";
+            //String terror = "INSERT INTO estados VALUES('" +
+                //txtCodigo.Text+ "','" +txtNome.Text +
+                //"','" + txtUF.Text + "')";
 
-            string novo = string.Format(
-                "INSERT INTO estados VALUES('{0}' ,'{1}','{2}'",
+            String novo = String.Format(
+                "INSERT INTO estados VALUES('{0}','{1}','{2}')",
                 txtCodigo.Text, txtNome.Text, txtUF.Text);
             modifica(novo);
+
+            //String novo = String.Format(" INSERT INTO estados VALUES('{0}','{1}','{2}')", 
+               // txtCodigo.Text, txtNome.Text, txtUF.Text);
+           // modifica(novo);
         }
 
         private void btAtualizar_Click(object sender, EventArgs e)

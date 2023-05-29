@@ -77,7 +77,20 @@ namespace AcessoBD
                 {
                     txtcodigoCli.Text = br["codigo"].ToString();
                     txtnomeCli.Text = br["nome"].ToString();
-                    txtSexo.Text = br["sexo"].ToString();
+                    string sexo = br["sexo"].ToString();
+                    if (sexo == "F")
+                       rbtSexoF.Checked = true;
+
+                    else if (sexo == "M")
+                        rbtSexoM.Checked = true;
+                }
+                else
+                {
+                    txtnomeCli.Text = "";
+                    rbtSexoM.Checked = false;
+                    rbtSexoF.Checked = false;
+                    br.Close();
+                    dmc.Dispose();
                 }
                 br.Close();
                 dmc.Dispose();
@@ -86,7 +99,7 @@ namespace AcessoBD
 
             {
                 MessageBox.Show(ex.Message);
-                
+
             }
             finally
             {
@@ -104,27 +117,25 @@ namespace AcessoBD
 
         private void btnNovocli_Click(object sender, EventArgs e)
         {
-            string novo = string.Format(
-               "INSERT INTO clientes VALUES({0} ,'{1}','{2}'",
-               txtcodigoCli.Text, txtnomeCli.Text, txtSexo.Text);
+            String novo = String.Format(
+               "INSERT INTO clientes VALUES({0} ,'{1}','{2}')",
+               txtcodigoCli.Text, txtnomeCli.Text, rbtSexoF.Text , rbtSexoM.Text);
             modifica(novo);
         }
 
         private void btnAtualizaCli_Click(object sender, EventArgs e)
         {
-            String atualiza = String.Format(
-                "UPDATE clientes SET nome = '{0}',sexo'{1}' WHERE codigo = {2}", 
+            string atualiza = string.Format(
+                "UPDATE clientes SET nome = '{0}',sexo ='{1}' WHERE codigo = {2}", 
                 txtnomeCli.Text, txtSexo.Text, txtcodigoCli.Text);
             modifica(atualiza);
+
+            
         }
 
         private void rbtSexoM_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtSexoM.Checked)
-            {
-                txtSexo.Text = string.Format("M: '{0}.", txtSexo);
-
-            }
+            
         }
     }
 }
