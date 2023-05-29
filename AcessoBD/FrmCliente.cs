@@ -77,24 +77,14 @@ namespace AcessoBD
                 {
                     txtcodigoCli.Text = br["codigo"].ToString();
                     txtnomeCli.Text = br["nome"].ToString();
-                    string sexo = br["sexo"].ToString();
-                    if (sexo == "F")
-                       rbtSexoF.Checked = true;
+                    txtSexo.Text = br["sexo"].ToString();
 
-                    else if (sexo == "M")
-                        rbtSexoM.Checked = true;
                 }
-                else
-                {
-                    txtnomeCli.Text = "";
-                    rbtSexoM.Checked = false;
-                    rbtSexoF.Checked = false;
-                    br.Close();
+
+                br.Close();
                     dmc.Dispose();
                 }
-                br.Close();
-                dmc.Dispose();
-            }
+            
             catch (MySqlException ex)
 
             {
@@ -119,7 +109,7 @@ namespace AcessoBD
         {
             String novo = String.Format(
                "INSERT INTO clientes VALUES({0} ,'{1}','{2}')",
-               txtcodigoCli.Text, txtnomeCli.Text, rbtSexoF.Text , rbtSexoM.Text);
+               txtcodigoCli.Text, txtnomeCli.Text, txtSexo.Text );
             modifica(novo);
         }
 
@@ -135,7 +125,23 @@ namespace AcessoBD
 
         private void rbtSexoM_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbtSexoM.Checked)
+            {
+                txtSexo.Text = String.Format("M ", rbtSexoM);
+            }
+        }
+
+        private void txtSexo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtSexoF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtSexoF.Checked)
+            {
+                txtSexo.Text = String.Format("F ", rbtSexoF);
+            }
         }
     }
 }

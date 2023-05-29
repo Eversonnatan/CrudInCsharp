@@ -97,6 +97,7 @@ namespace AcessoBD
             this.txtSexo.Name = "txtSexo";
             this.txtSexo.Size = new System.Drawing.Size(129, 22);
             this.txtSexo.TabIndex = 5;
+            this.txtSexo.TextChanged += new System.EventHandler(this.txtSexo_TextChanged);
             // 
             // btnExit
             // 
@@ -187,6 +188,7 @@ namespace AcessoBD
             this.rbtSexoF.TabStop = true;
             this.rbtSexoF.Text = "Feminino";
             this.rbtSexoF.UseVisualStyleBackColor = true;
+            this.rbtSexoF.CheckedChanged += new System.EventHandler(this.rbtSexoF_CheckedChanged);
             // 
             // FrmCliente
             // 
