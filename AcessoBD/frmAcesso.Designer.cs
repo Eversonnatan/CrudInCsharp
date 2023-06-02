@@ -40,6 +40,10 @@ namespace AcessoBD
             this.btnApagar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btAtualizar = new System.Windows.Forms.Button();
+            this.btnPrimeiro = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
+            this.btnUltimo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -107,20 +111,19 @@ namespace AcessoBD
             // 
             this.btnPesquisa.Image = global::AcessoBD.Properties.Resources.search;
             this.btnPesquisa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPesquisa.Location = new System.Drawing.Point(258, 268);
+            this.btnPesquisa.Location = new System.Drawing.Point(258, 326);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(70, 70);
             this.btnPesquisa.TabIndex = 7;
             this.btnPesquisa.Text = "&Buscar";
             this.btnPesquisa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPesquisa.UseVisualStyleBackColor = true;
-            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = global::AcessoBD.Properties.Resources.erase;
             this.btnApagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnApagar.Location = new System.Drawing.Point(176, 268);
+            this.btnApagar.Location = new System.Drawing.Point(176, 326);
             this.btnApagar.Name = "btnApagar";
             this.btnApagar.Size = new System.Drawing.Size(70, 70);
             this.btnApagar.TabIndex = 8;
@@ -133,7 +136,7 @@ namespace AcessoBD
             // 
             this.btnNovo.Image = global::AcessoBD.Properties.Resources.adicionar;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNovo.Location = new System.Drawing.Point(100, 268);
+            this.btnNovo.Location = new System.Drawing.Point(100, 326);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(70, 70);
             this.btnNovo.TabIndex = 9;
@@ -146,7 +149,7 @@ namespace AcessoBD
             // 
             this.btAtualizar.Image = global::AcessoBD.Properties.Resources.atualizar;
             this.btAtualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btAtualizar.Location = new System.Drawing.Point(12, 268);
+            this.btAtualizar.Location = new System.Drawing.Point(6, 326);
             this.btAtualizar.Name = "btAtualizar";
             this.btAtualizar.Size = new System.Drawing.Size(70, 70);
             this.btAtualizar.TabIndex = 10;
@@ -155,11 +158,70 @@ namespace AcessoBD
             this.btAtualizar.UseVisualStyleBackColor = true;
             this.btAtualizar.Click += new System.EventHandler(this.btAtualizar_Click);
             // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimeiro.Image = global::AcessoBD.Properties.Resources.primeiro;
+            this.btnPrimeiro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPrimeiro.Location = new System.Drawing.Point(6, 231);
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(70, 70);
+            this.btnPrimeiro.TabIndex = 11;
+            this.btnPrimeiro.Text = "&Primeiro";
+            this.btnPrimeiro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrimeiro.UseVisualStyleBackColor = true;
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.Image = global::AcessoBD.Properties.Resources.anterior;
+            this.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAnterior.Location = new System.Drawing.Point(82, 231);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(70, 70);
+            this.btnAnterior.TabIndex = 12;
+            this.btnAnterior.Text = "&Anterior";
+            this.btnAnterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProximo.Image = global::AcessoBD.Properties.Resources.proximo;
+            this.btnProximo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProximo.Location = new System.Drawing.Point(176, 231);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(70, 70);
+            this.btnProximo.TabIndex = 13;
+            this.btnProximo.Text = "&Proximo";
+            this.btnProximo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.Image = global::AcessoBD.Properties.Resources.ultimo;
+            this.btnUltimo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUltimo.Location = new System.Drawing.Point(252, 231);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(70, 70);
+            this.btnUltimo.TabIndex = 14;
+            this.btnUltimo.Text = "&Ultimo";
+            this.btnUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            // 
             // frmAcesso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 361);
+            this.ClientSize = new System.Drawing.Size(334, 455);
+            this.Controls.Add(this.btnUltimo);
+            this.Controls.Add(this.btnProximo);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnPrimeiro);
             this.Controls.Add(this.btAtualizar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnApagar);
@@ -175,6 +237,7 @@ namespace AcessoBD
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAcesso";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.frmAcesso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +256,10 @@ namespace AcessoBD
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btAtualizar;
+        private System.Windows.Forms.Button btnPrimeiro;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.Button btnUltimo;
     }
 }
 

@@ -65,11 +65,10 @@ namespace AcessoBD
 
 
         #region botão de Pesquisa
-        private void btnPesquisa_Click(object sender, EventArgs e)
+        private void Pesquisa(string consulta)
         {
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = String.Format("SELECT * FROM estados WHERE codigo = {0}",
-                        txtCodigo.Text);
+            cmd.CommandText = consulta;
             cmd.CommandType = CommandType.Text;
             cmd.Connection = Conexao.abreConexao();
             MySqlDataReader dr;
@@ -128,6 +127,45 @@ namespace AcessoBD
                 "UPDATE estados SET nome='{0}', uf='{1}' WHERE codigo = {2}",
                 txtNome.Text, txtUF.Text, txtCodigo.Text);
             modifica(atualiza);
+        }
+
+        private void btnPrimeiro_Click(object sender, EventArgs e)
+        {
+            string primeiro =
+                string.Format("SELECT * FROM estados LIMIT 1");
+            Pesquisa(primeiro);
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            string anterior =
+                string.Format(" SELECT * FROM estados WHERE codigo < {0} ORDER BY CODIGO DESC LIMIT 1",
+                 txtCodigo.Text);
+            Pesquisa(anterior);
+               
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            string proximo = string.Format(
+                "SELECT * FROM estados where codigo > {0} LIMIT 1",
+                txtCodigo.Text);
+            Pesquisa(proximo);
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            string ultimo = string.Format(
+                "SELECT * FROM estados ORDER BY codigo DESC LIMIT 1");
+            Pesquisa(ultimo);
+        }
+
+        private void frmAcesso_Load(object sender, EventArgs e)
+        {
+            string primeiro =
+                string.Format("SELECT * FROM estados LIMIT 1");
+            Pesquisa(primeiro);
+
         }
     }
 }
