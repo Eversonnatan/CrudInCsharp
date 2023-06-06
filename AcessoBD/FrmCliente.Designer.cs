@@ -36,12 +36,15 @@ namespace AcessoBD
             this.txtnomeCli = new System.Windows.Forms.TextBox();
             this.txtSexo = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.BtnPesquisaCli = new System.Windows.Forms.Button();
             this.btnAtualizaCli = new System.Windows.Forms.Button();
             this.btnNovocli = new System.Windows.Forms.Button();
             this.btnapagarCli = new System.Windows.Forms.Button();
             this.rbtSexoM = new System.Windows.Forms.RadioButton();
             this.rbtSexoF = new System.Windows.Forms.RadioButton();
+            this.btnPrimeiro = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
+            this.btnUltimo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigoCli
@@ -93,7 +96,7 @@ namespace AcessoBD
             // txtSexo
             // 
             this.txtSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSexo.Location = new System.Drawing.Point(4, 213);
+            this.txtSexo.Location = new System.Drawing.Point(15, 213);
             this.txtSexo.Name = "txtSexo";
             this.txtSexo.Size = new System.Drawing.Size(129, 22);
             this.txtSexo.TabIndex = 5;
@@ -103,7 +106,7 @@ namespace AcessoBD
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Image = global::AcessoBD.Properties.Resources.exit;
-            this.btnExit.Location = new System.Drawing.Point(311, -3);
+            this.btnExit.Location = new System.Drawing.Point(291, -3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(67, 78);
             this.btnExit.TabIndex = 6;
@@ -112,24 +115,11 @@ namespace AcessoBD
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // BtnPesquisaCli
-            // 
-            this.BtnPesquisaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPesquisaCli.Image = global::AcessoBD.Properties.Resources.search;
-            this.BtnPesquisaCli.Location = new System.Drawing.Point(301, 254);
-            this.BtnPesquisaCli.Name = "BtnPesquisaCli";
-            this.BtnPesquisaCli.Size = new System.Drawing.Size(89, 79);
-            this.BtnPesquisaCli.TabIndex = 7;
-            this.BtnPesquisaCli.Text = "&Pesquisar";
-            this.BtnPesquisaCli.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnPesquisaCli.UseVisualStyleBackColor = true;
-            this.BtnPesquisaCli.Click += new System.EventHandler(this.BtnPesquisaCli_Click);
-            // 
             // btnAtualizaCli
             // 
             this.btnAtualizaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizaCli.Image = global::AcessoBD.Properties.Resources.atualizar;
-            this.btnAtualizaCli.Location = new System.Drawing.Point(4, 254);
+            this.btnAtualizaCli.Location = new System.Drawing.Point(12, 357);
             this.btnAtualizaCli.Name = "btnAtualizaCli";
             this.btnAtualizaCli.Size = new System.Drawing.Size(89, 79);
             this.btnAtualizaCli.TabIndex = 8;
@@ -142,7 +132,7 @@ namespace AcessoBD
             // 
             this.btnNovocli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovocli.Image = global::AcessoBD.Properties.Resources.adicionar;
-            this.btnNovocli.Location = new System.Drawing.Point(95, 254);
+            this.btnNovocli.Location = new System.Drawing.Point(108, 358);
             this.btnNovocli.Name = "btnNovocli";
             this.btnNovocli.Size = new System.Drawing.Size(89, 79);
             this.btnNovocli.TabIndex = 9;
@@ -155,7 +145,7 @@ namespace AcessoBD
             // 
             this.btnapagarCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnapagarCli.Image = global::AcessoBD.Properties.Resources.erase;
-            this.btnapagarCli.Location = new System.Drawing.Point(206, 254);
+            this.btnapagarCli.Location = new System.Drawing.Point(213, 357);
             this.btnapagarCli.Name = "btnapagarCli";
             this.btnapagarCli.Size = new System.Drawing.Size(89, 79);
             this.btnapagarCli.TabIndex = 10;
@@ -190,17 +180,76 @@ namespace AcessoBD
             this.rbtSexoF.UseVisualStyleBackColor = true;
             this.rbtSexoF.CheckedChanged += new System.EventHandler(this.rbtSexoF_CheckedChanged);
             // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimeiro.Image = global::AcessoBD.Properties.Resources.primeiro;
+            this.btnPrimeiro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPrimeiro.Location = new System.Drawing.Point(9, 281);
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(70, 70);
+            this.btnPrimeiro.TabIndex = 13;
+            this.btnPrimeiro.Text = "&Primeiro";
+            this.btnPrimeiro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrimeiro.UseVisualStyleBackColor = true;
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.Image = global::AcessoBD.Properties.Resources.anterior;
+            this.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAnterior.Location = new System.Drawing.Point(85, 281);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(70, 70);
+            this.btnAnterior.TabIndex = 14;
+            this.btnAnterior.Text = "&Anterior";
+            this.btnAnterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProximo.Image = global::AcessoBD.Properties.Resources.proximo;
+            this.btnProximo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProximo.Location = new System.Drawing.Point(180, 281);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(70, 70);
+            this.btnProximo.TabIndex = 15;
+            this.btnProximo.Text = "&Proximo";
+            this.btnProximo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUltimo.Image = global::AcessoBD.Properties.Resources.ultimo;
+            this.btnUltimo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUltimo.Location = new System.Drawing.Point(275, 281);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(70, 70);
+            this.btnUltimo.TabIndex = 16;
+            this.btnUltimo.Text = "&Ultimo";
+            this.btnUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 332);
+            this.ClientSize = new System.Drawing.Size(364, 438);
+            this.Controls.Add(this.btnUltimo);
+            this.Controls.Add(this.btnProximo);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnPrimeiro);
             this.Controls.Add(this.rbtSexoF);
             this.Controls.Add(this.rbtSexoM);
             this.Controls.Add(this.btnapagarCli);
             this.Controls.Add(this.btnNovocli);
             this.Controls.Add(this.btnAtualizaCli);
-            this.Controls.Add(this.BtnPesquisaCli);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtSexo);
             this.Controls.Add(this.txtnomeCli);
@@ -210,6 +259,7 @@ namespace AcessoBD
             this.Controls.Add(this.lblCodigoCli);
             this.Name = "FrmCliente";
             this.Text = "FrmCliente";
+            this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,11 +274,14 @@ namespace AcessoBD
         private System.Windows.Forms.TextBox txtnomeCli;
         private System.Windows.Forms.TextBox txtSexo;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button BtnPesquisaCli;
         private System.Windows.Forms.Button btnAtualizaCli;
         private System.Windows.Forms.Button btnNovocli;
         private System.Windows.Forms.Button btnapagarCli;
         private System.Windows.Forms.RadioButton rbtSexoM;
         private System.Windows.Forms.RadioButton rbtSexoF;
+        private System.Windows.Forms.Button btnPrimeiro;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.Button btnUltimo;
     }
 }

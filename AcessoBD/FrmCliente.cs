@@ -62,11 +62,10 @@ namespace AcessoBD
         #endregion
 
         #region botão de Pesquisa
-        private void BtnPesquisaCli_Click(object sender, EventArgs e)
+        private void Pesquisa (string consulta)
         {
             MySqlCommand dmc = new MySqlCommand();
-            dmc.CommandText = String.Format("SELECT * FROM clientes WHERE codigo = {0}",
-                txtcodigoCli.Text);
+            dmc.CommandText = consulta;
             dmc.CommandType = CommandType.Text;
             dmc.Connection = Conexao.abreConexao();
             MySqlDataReader br;
@@ -142,6 +141,40 @@ namespace AcessoBD
             {
                 txtSexo.Text = String.Format("F ", rbtSexoF);
             }
+        }
+
+        private void btnPrimeiro_Click(object sender, EventArgs e)
+        {
+            string primeiro =
+                String.Format("SELECT * FROM clientes LIMIT 1 ");
+            Pesquisa(primeiro);
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            String anterior =
+            String.Format("SELECT * FROM clientes WHERE codigo < {0} ORDER BY codigo DESC LIMIT 1", txtcodigoCli.Text);
+            Pesquisa(anterior);
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            string proximo = string.Format(
+                "SELECT * FROM clientes WHERE codigo > {0} LIMIT 1", txtcodigoCli.Text);
+            Pesquisa(proximo);
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            string ultimo = String.Format("SELECT * FROM clientes ORDER BY codigo DESC LIMIT 1");
+            Pesquisa(ultimo);
+        }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+            string primeiro =
+                String.Format("SELECT * FROM clientes LIMIT 1");
+            Pesquisa(primeiro);
         }
     }
 }
